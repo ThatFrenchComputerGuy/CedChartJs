@@ -20,29 +20,29 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
     You need 2 props: **directData** and **dataType**.
     - directData must be an array of Objects containing at least 2 different object with at least ```time:``` ,  ```value:``` and ```type:```     
     *Example:* 
-    ```
-  <CedChart 
-        directData={[
-            {
-              _id: '5d9c4467a9b60f0012c1bb67',
-              client: 'A4:CF:12:6B:DA:8C',
-              time: '1570522315',
-              type: 'Temperature',
-              value: '0',
-              __v: 0,
-            },
-            {
-              _id: '5d9c4467a9b60f0012c1bb67',
-              client: 'A4:CF:12:6B:DA:8C',
-              time: '1570522215',
-              type: 'Temperature',
-              value: '100',
-              __v: 0,
-            },
-          ]}
-          dataType="Temperature" 
-  />
-  ```
+        ```
+      <CedChart 
+            directData={[
+                {
+                  _id: '5d9c4467a9b60f0012c1bb67',
+                  client: 'A4:CF:12:6B:DA:8C',
+                  time: '1570522315',
+                  type: 'Temperature',
+                  value: '0',
+                  __v: 0,
+                },
+                {
+                  _id: '5d9c4467a9b60f0012c1bb67',
+                  client: 'A4:CF:12:6B:DA:8C',
+                  time: '1570522215',
+                  type: 'Temperature',
+                  value: '100',
+                  __v: 0,
+                },
+              ]}
+              dataType="Temperature" 
+      />
+        ```
 - **Option 2** - You let the Chart fetch the data. You only need to specify the 2 props: **device** and **dataType**.
     
     *Example:*
