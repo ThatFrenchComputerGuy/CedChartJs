@@ -3,8 +3,8 @@ CedChart.js is a react-native module which renders a fully scalable Line Chart w
 
 ## Description
 - The chart has two modes:
-    1) Data is fetched inside the module with axios get or post. The chart displays a loader during the fetch
-    2) Data is fetched outside the module and you can pass an array that has been fetched elsewhere.
+    - Data is fetched inside the module with axios get or post. The chart displays a loader during the fetch
+    - Data is fetched outside the module and you can pass an array that has been fetched elsewhere.
 
 - The x-axis can contain 24-hours value for the moment. The scale will adapt depending on the amount of data with more or less vetical strokes displaying.
 
