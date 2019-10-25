@@ -1,7 +1,7 @@
-#CedChart.js
+# CedChart.js
 CedChart.js is a react-native module which renders a fully scalable Line Chart with data that can be fetched from api.
 
-##Description
+## Description
 - The chart has two modes:
     1) Data is fetched inside the module with axios get or post. The chart displays a loader during the fetch
     2) Data is fetched outside the module and you can pass an array that has been fetched elsewhere.
@@ -10,10 +10,10 @@ CedChart.js is a react-native module which renders a fully scalable Line Chart w
 
 - The y-axis will always display 11 adaptive values corresponding to 0, 10, 20, 30, ... , 100% of the data's max value.
 
-##Installation
+## Installation
 There is currently no installation option. You have to include the source code in your project.
 
-##Usage
+## Usage
 You implement the chart by calling ```<CedChart />``` in your ```render()```
 
 - **Option 1** - You pass pre-fetched data to the Chart:
@@ -53,5 +53,5 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
     />
     ```
   
-  ##Contributing
+  ## Contributing
   Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or contact me on Slack.
