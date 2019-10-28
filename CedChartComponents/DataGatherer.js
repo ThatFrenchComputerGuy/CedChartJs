@@ -5,18 +5,23 @@ class DataGatherer {
   constructor() {
     this.state = {
       data: [],
-      dataType: '',
+      dataType: ['0'],
       period: '',
+      increment: 0,
     };
   }
 
   getUnit = type => {
     let temp = [];
     this.state.data.forEach(element => {
-      if (element.type === this.state.dataType) {
-        type === 'unixCode'
-          ? temp.unshift(parseInt(element.time))
-          : temp.unshift(parseFloat(element.value));
+      for (let i = 0; i < this.state.dataType.length; i++) {
+        if (this.state.dataType[i]) {
+          if (element.type === this.state.dataType[i]) {
+            type === 'unixCode'
+              ? temp.unshift(parseInt(element.time))
+              : temp.unshift(parseFloat(element.value));
+          }
+        }
       }
     });
     return temp;
@@ -76,7 +81,8 @@ class DataGatherer {
   };
 
   setDataType(dataType) {
-    this.state.dataType = dataType;
+    this.state.dataType[this.state.increment] = dataType;
+    this.state.increment += 1;
   }
 
   setPeriod(period) {
@@ -87,7 +93,6 @@ class DataGatherer {
     await axios
       .get('https://gaussfan.de:3000/chartMeasures/' + device + '/' + dataType)
       .then(result => {
-        console.log(result.data);
         this.state.data = result.data;
       });
   }
