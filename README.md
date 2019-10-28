@@ -75,6 +75,9 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
       dataType="Temperature"
     />
     ```
+  While the data is fetching, the chart will display a loader:
+  <img style="float: right;" src="/visuals/loader.png">
+  
  ### Color
  One additional property for your Chart is ```color:``` You can choose between 3 colors (blue, red or green). If not specified, the default color is blue.
  
