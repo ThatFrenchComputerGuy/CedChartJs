@@ -76,7 +76,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
     />
     ```
  ### Color
- One additional property for your Chart is ```color:```. You can choose between 3 colors (blue, red or green). If not specified, the default color is blue.
+ One additional property for your Chart is ```color:``` You can choose between 3 colors (blue, red or green). If not specified, the default color is blue.
  
  *Example:*
 ```
