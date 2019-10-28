@@ -88,3 +88,6 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
    The Chart should render nicely on any screen width so please open an issue stating your screen ratio if it does not. 
 
    You can adapt the height a little bit.
+   
+   #### Can I load multiple graphs on the same screen ?
+   Yes you absolutely can.
