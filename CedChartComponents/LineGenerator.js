@@ -71,9 +71,9 @@ class LineGenerator extends Component {
         <Svg width={width * 0.9} height={height}>
           <Defs>
             <LinearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="gradient">
-              <Stop stopColor="#ecf0f1" offset="98%" />
+              {/*<Stop stopColor="#ecf0f1" offset="98%" />*/}
               <Stop stopColor={this.colorPicker(this.props.color)[1]} offset="0%" />
-              <Stop stopColor="#eef6fd" offset="100%" />
+              <Stop stopColor="#ffffff" offset="100%" />
             </LinearGradient>
           </Defs>
           <Path
