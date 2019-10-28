@@ -5,6 +5,12 @@ CedChart.js is a react-native module which renders a fully scalable Line Chart w
 <img style="float: right;" src="/visuals/mainVisual.png">
 </p>
 
+##Table of Contents
+1. [Description](#Description)
+2. [Installation](#Installation)
+3. [Usage](#Usage)
+4. [Contributing](#Contributing)
+5. [F.A.Q](#F.A.Q)
 
 ## Description
 - The chart has two modes:
@@ -71,10 +77,10 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
     />
     ```
   
-  ## Contributing
+ ## Contributing
   Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or contact me on Slack.
     
-  ## F.A.Q
+ ## F.A.Q
    #### Can I change the aspect ratio of the chart ?
    
    This Chart module has been thought to take the full width of the screen so please *Full compatibility cannot be guaranteed if you change the width ratio.* 
