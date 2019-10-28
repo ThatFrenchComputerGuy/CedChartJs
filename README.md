@@ -49,7 +49,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
         directData={[
             {
               _id: '5d9c4467a9b60f0012c1bb67',
-              client: 'A4:CF:12:6B:DA:8C',
+              client: 'E8:FC:AF:B9:BE:A2',
               time: '1570522315',
               type: 'Temperature',
               value: '0',
@@ -57,7 +57,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
             },
             {
               _id: '5d9c4467a9b60f0012c1bb67',
-              client: 'A4:CF:12:6B:DA:8C',
+              client: 'E8:FC:AF:B9:BE:A2',
               time: '1570522215',
               type: 'Temperature',
               value: '100',
@@ -72,10 +72,22 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
     *Example:*
     ```
     <CedChart
-      device="A4:CF:12:6B:DA:8C"
+      device="E8:FC:AF:B9:BE:A2"
       dataType="Temperature"
     />
     ```
+ #### Color
+ One additional property for your Chart is ```color:```. You can choose between 3 colors (blue, red or green). If not specified, the default color is blue.
+ 
+ *Example:*
+```
+<CedChart
+    device="E8:FC:AF:B9:BE:A2"
+    dataType="Temperature"
+    color: "red"
+/>
+```
+<img style="float: right;" src="/visuals/redRendering.png">
   
  ## Contributing
   Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or contact me on Slack.

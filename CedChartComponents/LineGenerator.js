@@ -42,6 +42,29 @@ class LineGenerator extends Component {
       .y(d => scaleY(d.value)) //The max value will be the height of the chart
       .curve(d3.shape.curveCatmullRom.alpha(0.5))(DataGatherer.graphData());
   };
+
+  colorPicker = color => {
+    let colorArr = [];
+    switch (color){
+      case 'blue':
+        colorArr.push('#367be2');
+        colorArr.push('#CDE3F8');
+        break;
+      case 'green':
+        colorArr.push('#36e258');
+        colorArr.push('#d3f8cd');
+        break;
+      case 'red':
+        colorArr.push('#e23636');
+        colorArr.push('#f8cdcd');
+        break;
+      default:
+        colorArr.push('#367be2');
+        colorArr.push('#CDE3F8');
+    }
+    return colorArr;
+  };
+
   render() {
     return (
       <View>
@@ -49,14 +72,14 @@ class LineGenerator extends Component {
           <Defs>
             <LinearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="gradient">
               <Stop stopColor="#ecf0f1" offset="98%" />
-              <Stop stopColor="#CDE3F8" offset="0%" />
+              <Stop stopColor={this.colorPicker(this.props.color)[1]} offset="0%" />
               <Stop stopColor="#eef6fd" offset="100%" />
             </LinearGradient>
           </Defs>
           <Path
             d={this.state.line}
             fill="transparent"
-            stroke="#367be2"
+            stroke={this.colorPicker(this.props.color)[0]}
             strokeWidth={5}
           />
           <Path
