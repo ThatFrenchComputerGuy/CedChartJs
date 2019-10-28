@@ -73,3 +73,12 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
   
   ## Contributing
   Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or contact me on Slack.
+    
+  ## F.A.Q
+   #### Can I change the aspect ratio of the chart ?
+   
+   This Chart module has been thought to take the full width of the screen so please *Full compatibility cannot be guaranteed if you change the width ratio.* 
+   
+   The Chart should render nicely on any screen width so please open an issue stating your screen ratio if it does not. 
+
+   You can adapt the height a little bit.
