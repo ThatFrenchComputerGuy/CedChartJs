@@ -76,6 +76,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
     />
     ```
   While the data is fetching, the chart will display a loader:
+  
   <img style="float: right;" src="/visuals/loader.png">
   
  ### Color
