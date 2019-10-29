@@ -37,7 +37,7 @@ class CedChart extends Component {
               <View style={styles.yLabels}>
                 <YLabel dataType={this.props.dataType} />
               </View>
-              <LineGenerator color={this.props.color}/>
+              <LineGenerator color={this.props.color} secondColor={this.props.secondColor}/>
             </View>
             <View style={styles.xLabels}>
               <XLabels />

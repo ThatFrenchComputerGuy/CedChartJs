@@ -100,6 +100,23 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
 ```
 <img style="float: right;" src="/visuals/redRendering.png">
   
+  
+ ### Second Color
+ Another additional property for your graph is ```secondColor:``` This allows you to have a custom gradient color different from the main line color.
+ The same colors as *color:* are available.
+ 
+ *Example:*
+ ```
+ <CedChart
+     device="E8:FC:AF:B9:BE:A2"
+     dataType="Temperature"
+     color="pink"
+     secondColor="orange"
+ />
+ ```
+ <img style="float: right;" src="/visuals/secondColor.png">
+ 
+ 
  ## Contributing
   Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or contact me on Slack.
     
