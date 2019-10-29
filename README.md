@@ -7,7 +7,11 @@ CedChart.js is a react-native module which renders a fully scalable Line Chart w
 ## Table of Contents
 1. [Description](#Description)
 2. [Installation](#Installation)
+    1. [Dependencies](#Dependencies)
 3. [Usage](#Usage)
+    1. [Compulsory properties](#Compulsory properties)
+    2. [Color](#Color)
+    3. [Second Color](#Second Color)
 4. [Contributing](#Contributing)
 5. [F.A.Q](#FAQ)
 
@@ -37,6 +41,8 @@ Alternatively, you may run ```yarn add dependency_name``` then ```yarn install``
 
 ## Usage
 You implement the chart by calling ```<CedChart />``` in your ```render()```
+
+### Compulsory properties
 
 - **Option 1** - You pass pre-fetched data to the Chart:
     You need 2 props: **directData** and **dataType**.
