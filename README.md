@@ -86,7 +86,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
   <img style="float: right;" src="/visuals/loader.png">
   
  ### Color
- One additional property for your Chart is ```color:``` You can choose between 6 colors:
+ One additional property for your Chart is **color**. You can choose between 6 colors:
  - red
  - green
  - blue
@@ -108,7 +108,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
   
   
  ### Second Color
- Another additional property for your graph is ```secondColor:``` This allows you to have a custom gradient color different from the main line color.
+ Another additional property for your graph is **secondColor**. This allows you to have a custom gradient color different from the main line color.
  The same colors as *color:* are available.
  
  If not specified, the default second color is the same as the main color.
