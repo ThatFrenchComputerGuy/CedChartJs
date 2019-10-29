@@ -80,7 +80,15 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
   <img style="float: right;" src="/visuals/loader.png">
   
  ### Color
- One additional property for your Chart is ```color:``` You can choose between 3 colors (blue, red or green). If not specified, the default color is blue.
+ One additional property for your Chart is ```color:``` You can choose between 6 colors:
+ - red
+ - green
+ - blue
+ - orange
+ - purple
+ - pink 
+  
+  If not specified, the default color is blue.
  
  *Example:*
 ```
