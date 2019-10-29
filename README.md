@@ -101,7 +101,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
 <CedChart
     device="E8:FC:AF:B9:BE:A2"
     dataType="Temperature"
-    color: "red"
+    color= "red"
 />
 ```
 <img style="float: right;" src="/visuals/redRendering.png">
