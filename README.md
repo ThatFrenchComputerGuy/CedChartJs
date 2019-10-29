@@ -111,6 +111,8 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
  Another additional property for your graph is ```secondColor:``` This allows you to have a custom gradient color different from the main line color.
  The same colors as *color:* are available.
  
+ If not specified, the default second color is the same as the main color.
+ 
  *Example:*
  ```
  <CedChart
