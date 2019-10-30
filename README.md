@@ -72,13 +72,14 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
           dataType="Temperature" 
   />
     ```
-- **Option 2** - You let the Chart fetch the data. You only need to specify the 2 props: **device** and **dataType**.
+- **Option 2** - You let the Chart fetch the data. You only need to specify the 3 props: **device**, **dataType** and **url**.
     
     *Example:*
     ```
     <CedChart
       device="E8:FC:AF:B9:BE:A2"
       dataType="Temperature"
+      url="localhost:8080/measures/"
     />
     ```
   While the data is fetching, the chart will display a loader:

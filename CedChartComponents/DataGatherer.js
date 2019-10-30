@@ -89,9 +89,9 @@ class DataGatherer {
     this.state.period = period;
   }
 
-  async axios(device, dataType) {
+  async axios(device, dataType, url) {
     await axios
-      .get('https://gaussfan.de:3000/chartMeasures/' + device + '/' + dataType)
+      .get(url + device + '/' + dataType)
       .then(result => {
         this.state.data = result.data;
       });

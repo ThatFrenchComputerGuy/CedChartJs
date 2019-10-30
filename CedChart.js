@@ -20,7 +20,7 @@ class CedChart extends Component {
       this.setState({loading: false});
     } else {
       if (!this.props.period) {
-        DataGatherer.axios(this.props.device, this.props.dataType).then(() => {
+        DataGatherer.axios(this.props.device, this.props.dataType, this.props.url).then(() => {
           this.setState({...this.state, loading: false});
         });
       }
