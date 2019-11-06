@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import DataGatherer from './DataGatherer';
 import {scaleLinear, scaleTime} from 'd3-scale';
 import {Dimensions, View} from 'react-native';
 import * as shape from 'd3-shape';
@@ -20,8 +19,8 @@ class LineGenerator extends Component {
     };
   }
   drawMyLine = () => {
-    let dateArr = DataGatherer.getDatesArray('classic'),
-      valArr = DataGatherer.getUnit('values');
+    let dateArr = this.props.dateArr,
+      valArr = this.props.valArr;
     /*Scale function works as follows:
      * domain = Max - Min of the data
      * range = Max - Min of the available space defined
@@ -40,7 +39,7 @@ class LineGenerator extends Component {
       .line()
       .x(d => scaleX(d.time))
       .y(d => scaleY(d.value)) //The max value will be the height of the chart
-      .curve(d3.shape.curveCatmullRom.alpha(0.5))(DataGatherer.graphData());
+      .curve(d3.shape.curveCatmullRom.alpha(0.5))(this.props.graph);
   };
 
   colorPicker = color => {
@@ -97,7 +96,10 @@ class LineGenerator extends Component {
             d={`${this.state.line} L ${0} ${height} L ${width} ${height}`}
             fill="url(#gradient)"
           />
-          <GraphAxis />
+          <GraphAxis
+              xScale={this.props.scaleX}
+              horizontalScaler={this.props.horizonScale}
+          />
         </Svg>
       </View>
     );

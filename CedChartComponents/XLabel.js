@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import {Dimensions, StyleSheet, Text, View} from 'react-native';
-import DataGatherer from './DataGatherer';
 
 class XLabels extends Component {
   render() {
     return (
       <React.Fragment>
-        {DataGatherer.getDatesArray('formatted').map((item, idx) =>
-          idx % DataGatherer.horizontalScaler() === 0 ? (
+        {this.props.dateArr.map((item, idx) =>
+          idx % this.props.horizonScale === 0 ? (
             <View key={idx}>
               <Text
                 style={

@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
-import {} from './DataGatherer';
-
 import {StyleSheet, Text, View} from 'react-native';
-import DataGatherer from './DataGatherer';
 
 class YLabel extends Component {
   generateYLabelsValues = () => {
-    let maxVal = Math.max(...DataGatherer.getUnit('values'));
+    let maxVal = Math.max(...this.props.unitGet);
     let yLabels = [String(parseInt(maxVal))];
     for (let i = 0.9; i > 0.1; i -= 0.1) {
       maxVal * i < 10
