@@ -4,6 +4,7 @@ import YLabel from './CedChartComponents/YLabel';
 import LineGenerator from './CedChartComponents/LineGenerator';
 import XLabels from './CedChartComponents/XLabel';
 import axios from 'axios';
+// let myComp = require(axios) from 'axios';
 
 class CedChart extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class CedChart extends Component {
     let temp = [];
     this.state.data.forEach(element => {
       if (this.state.dataType) {
-        if (element.type === this.state.dataType) {
+        if (element.type === this.props.dataType) {
           type === 'unixCode'
             ? temp.unshift(parseInt(element.time))
             : temp.unshift(parseFloat(element.value));
