@@ -1,30 +1,35 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import PropTypes from 'prop-types';
 
-class XLabels extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        {this.props.dateArr.map((item, idx) =>
-          idx % this.props.horizonScale === 0 ? (
-            <View key={idx}>
-              <Text
-                style={
-                  Number(Math.round(Dimensions.get('window').width) * 0.9) < 330
-                    ? styles.smallScreen
-                    : styles.bigScreen
-                }>
-                {item}
-              </Text>
-            </View>
-          ) : (
-            <View key={idx} />
-          ),
-        )}
-      </React.Fragment>
-    );
-  }
+export default function XLabels({dateArr, scaleY}) {
+  return (
+    <React.Fragment>
+      {dateArr.map((item, idx) =>
+        idx % scaleY === 0 ? (
+          <View key={idx}>
+            <Text
+              style={
+                Number(Math.round(Dimensions.get('window').width) * 0.9) < 330
+                  ? styles.smallScreen
+                  : styles.bigScreen
+              }>
+              {item}
+            </Text>
+          </View>
+        ) : (
+          <View key={idx} />
+        ),
+      )}
+    </React.Fragment>
+  );
 }
+
+XLabels.propTypes = {
+  dateArr: PropTypes.array.isRequired,
+  scaleY: PropTypes.number.isRequired,
+};
+
 const styles = StyleSheet.create({
   bigScreen: {
     fontSize: 9,
@@ -35,4 +40,3 @@ const styles = StyleSheet.create({
     marginRight: -4,
   },
 });
-export default XLabels;

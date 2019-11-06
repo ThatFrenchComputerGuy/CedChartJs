@@ -126,7 +126,6 @@ class CedChart extends Component {
 
   render() {
     const {loading} = this.state;
-    const array = this.xScale();
     if (!loading) {
       return (
         <React.Fragment>
@@ -151,7 +150,7 @@ class CedChart extends Component {
             <View style={styles.xLabels}>
               <XLabels
                 dateArr={this.getDatesArray('formatted')}
-                horizonScale={this.horizontalScaler()}
+                scaleY={this.horizontalScaler()}
               />
             </View>
           </View>
