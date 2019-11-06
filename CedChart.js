@@ -4,34 +4,24 @@ import YLabel from './CedChartComponents/YLabel';
 import LineGenerator from './CedChartComponents/LineGenerator';
 import XLabels from './CedChartComponents/XLabel';
 import axios from 'axios';
-// let myComp = require(axios) from 'axios';
 
 class CedChart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
-      data: [],
-      dataType: '',
+      loading: !this.props.directData,
+      data: this.props.directData ? this.props.directData : [],
+      dataType: this.props.dataType,
       period: '',
     };
   }
 
   componentDidMount() {
-    this.setState({
-      dataType: this.props.dataType,
-    });
-    if (this.props.directData) {
-      this.setState({data: this.props.directData, loading: false});
-    } else {
-      if (!this.props.period) {
-        this.axios(this.props.device, this.props.dataType, this.props.url).then(
-          () => {
-            this.setState({...this.state, loading: false});
-          },
-        );
-      }
-    }
+    this.axios(this.props.device, this.state.dataType, this.props.url).then(
+      () => {
+        this.setState({...this.state, loading: false});
+      },
+    ).catch(error => {console.log(error)});
   }
 
   getUnit = type => {
@@ -87,7 +77,6 @@ class CedChart extends Component {
     for (let i = 0; i < unixCode.length; i++) {
       xPercentages.push(100 - ((xMax - unixCode[i]) * 100) / scale);
     }
-    console.log(xPercentages);
     return xPercentages;
   };
   //Every 10 strokes, will divide the amount of strokes by 2.
@@ -120,7 +109,6 @@ class CedChart extends Component {
   //       "endDate": '1571976909',
   //     })
   //     .then(result => {
-  //       console.log(result.data[0].x);
   //       this.state.data = result.data;
   //     });
   // }
