@@ -63,7 +63,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
           ]}
           
         timeUnit = {"time"}
-        valUnit = {"°C"} 
+        valUnit = {"value"} 
   />
     ```
   
@@ -83,7 +83,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
 <CedChart
     data= {[...]}
     timeUnit= {"time"}
-    valUnit= {"°C"}
+    valUnit= {"value"}
     color= {"red"}
 />
 ```
@@ -101,7 +101,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
  <CedChart
      data= {[...]}
      timeUnit= {"time"}
-     valUnit= {"°C"}
+     valUnit= {"value"}
      color="pink"
      secondColor="orange"
  />
@@ -116,7 +116,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
   <CedChart
       data= {[...]}
       timeUnit= {"time"}
-      valUnit= {"°C"}
+      valUnit= {"value"}
       yLabel= {"°C"}
   />
   ```
