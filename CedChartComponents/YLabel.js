@@ -13,21 +13,21 @@ export default function YLabel({unitGet, yLabel}) {
   yLabels.push('00');
   return (
     <React.Fragment>
-      <Text style={{fontSize: 9, marginTop: -19, marginRight: -30}}>
-        {yLabel}
-      </Text>
+      <View>
+        <Text style={{fontSize: 13, marginTop: -23, marginLeft: 4}}>
+          {yLabel}
+        </Text>
+      </View>
+
       {/*The style applied on Rows renders a homogeneous display for y labels depending on
              whether it's a 2 or 3 digit number*/}
       {yLabels.map((item, idx) => (
         <View
-          key={idx}
-          style={
-            item < 100 ? styles.yLabelDoubleValue : styles.yLabelTripleValue
-          }>
+          key={idx}>
           <Text
             style={[
-              {fontSize: 10},
-              idx === 0 ? {paddingBottom: 1, marginTop: -4} : {paddingTop: -4},
+              {fontSize: 11},
+              idx === 0 ? {paddingBottom: 1, marginTop: -11} : {paddingTop: -4},
             ]}>
             {item}
           </Text>
@@ -39,17 +39,5 @@ export default function YLabel({unitGet, yLabel}) {
 
 YLabel.propTypes = {
   unitGet: PropTypes.array.isRequired,
-  yLabel: PropTypes.string.isRequired,
+  yLabel: PropTypes.string,
 };
-
-const styles = StyleSheet.create({
-  yLabelTripleValue: {
-    marginLeft: 2.5,
-  },
-  yLabelDoubleValue: {
-    marginLeft: 7,
-  },
-  text: {
-    fontSize: 10,
-  },
-});
