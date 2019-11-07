@@ -46,7 +46,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
 
 - **Option 1** - You pass pre-fetched data to the Chart:
     You need 3 props: **data**, **timeUnit** and **valUnit**.
-    - **data** must be an array of Objects containing at least 2 different object with at least ```time:``` ,  ```value:``` and ```type:```     
+    - **data** must be an array of objects containing at least 2 different object with at least ```time:``` and  ```value:```   
 
     *Example:* 
     ```
