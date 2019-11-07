@@ -9,7 +9,7 @@ class CedChart extends Component {
     super(props);
     this.state = {
       loading: true,
-      data: this.props.directData ? this.props.directData : [],
+      data: this.props.data ? this.props.data : [],
       dataType: this.props.dataType,
       yScale: 0,
       graphData: [],
@@ -29,7 +29,7 @@ class CedChart extends Component {
       values = [];
     let yScaleVal;
     data.forEach(element => {
-      values.unshift(element.value);
+      values.unshift(element[this.props.valUnit]);
       this.graphData(dataGraph, element);
       this.getDatesArray(classicTime, formattedTime, element);
       this.xScale(data, xPercentages, element);
@@ -53,39 +53,28 @@ class CedChart extends Component {
       loading: false,
     });
   }
-  getUnit = () => {
-    let temp = [];
-    this.state.data.forEach(element => {
-      if (this.state.dataType) {
-        temp.unshift({
-          time: parseInt(element.time),
-          value: parseFloat(element.value),
-        });
-      }
-    });
-    return temp;
-  };
-
   // Function necessary as the date for the x-axis of the graph takes pure unix code not *10000
   graphData = (dataGraph, element) => {
     dataGraph.push({
-      time: new Date(parseInt(element.time)),
-      value: element.value,
+      time: new Date(parseInt(element[this.props.timeUnit])),
+      value: element[this.props.valUnit],
     });
   };
   // The function scaleTime() from d3 requires a raw type of unixcode which will be referred to as 'classic'
   // To display the time in the label we need toTimeString() which will be referred to as 'formatted'
   getDatesArray = (classicTime, formattedTime, element) => {
-    classicTime.unshift(element.time);
+    classicTime.unshift(element[this.props.timeUnit]);
     formattedTime.unshift(
-      new Date(element.time * 1000).toTimeString().substr(0, 5),
+      new Date(element[this.props.timeUnit] * 1000).toTimeString().substr(0, 5),
     );
   };
 
   xScale = (data, xPercentages, element) => {
-    let xMax = data[data.length - 1].time;
-    let scale = xMax - data[0].time;
-    xPercentages.unshift(100 - ((xMax - element.time) * 100) / scale);
+    let xMax = data[data.length - 1][this.props.timeUnit];
+    let scale = xMax - data[0][this.props.timeUnit];
+    xPercentages.unshift(
+      100 - ((xMax - element[this.props.timeUnit]) * 100) / scale,
+    );
   };
 
   render() {
@@ -98,7 +87,7 @@ class CedChart extends Component {
               <View style={styles.yLabels}>
                 <YLabel
                   unitGet={this.state.values}
-                  dataType={this.props.dataType}
+                  yLabel={this.props.yLabel}
                 />
               </View>
               <LineGenerator

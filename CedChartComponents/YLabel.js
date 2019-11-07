@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import PropTypes from 'prop-types';
 
-export default function YLabel({unitGet, dataType}) {
+export default function YLabel({unitGet, yLabel}) {
   let maxVal = Math.max(...unitGet);
   let yLabels = [String(parseInt(maxVal))];
   for (let i = 0.9; i > 0.1; i -= 0.1) {
@@ -14,7 +14,7 @@ export default function YLabel({unitGet, dataType}) {
   return (
     <React.Fragment>
       <Text style={{fontSize: 9, marginTop: -19, marginRight: -30}}>
-        {dataType}
+        {yLabel}
       </Text>
       {/*The style applied on Rows renders a homogeneous display for y labels depending on
              whether it's a 2 or 3 digit number*/}
@@ -39,7 +39,7 @@ export default function YLabel({unitGet, dataType}) {
 
 YLabel.propTypes = {
   unitGet: PropTypes.array.isRequired,
-  dataType: PropTypes.string.isRequired,
+  yLabel: PropTypes.string.isRequired,
 };
 
 const styles = StyleSheet.create({

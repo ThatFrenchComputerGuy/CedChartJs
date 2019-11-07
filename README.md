@@ -45,31 +45,25 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
 ### Compulsory properties
 
 - **Option 1** - You pass pre-fetched data to the Chart:
-    You need 2 props: **directData** and **dataType**.
-    - directData must be an array of Objects containing at least 2 different object with at least ```time:``` ,  ```value:``` and ```type:```     
+    You need 3 props: **data**, **timeUnit** and **valUnit**.
+    - **data** must be an array of Objects containing at least 2 different object with at least ```time:``` ,  ```value:``` and ```type:```     
 
     *Example:* 
     ```
   <CedChart 
-        directData={[
+        data={[
             {
-              _id: '5d9c4467a9b60f0012c1bb67',
-              client: 'E8:FC:AF:B9:BE:A2',
               time: '1570522315',
-              type: 'Temperature',
               value: '0',
-              __v: 0,
             },
             {
-              _id: '5d9c4467a9b60f0012c1bb67',
-              client: 'E8:FC:AF:B9:BE:A2',
               time: '1570522215',
-              type: 'Temperature',
               value: '100',
-              __v: 0,
             },
           ]}
-          dataType="Temperature" 
+          
+        timeUnit = {"time"}
+        valUnit = {"°C"} 
   />
     ```
   
@@ -87,9 +81,10 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
  *Example:*
 ```
 <CedChart
-    device="E8:FC:AF:B9:BE:A2"
-    dataType="Temperature"
-    color= "red"
+    data= {[...]}
+    timeUnit= {"time"}
+    valUnit= {"°C"}
+    color= {"red"}
 />
 ```
 <img style="float: right;" src="/visuals/redRendering.png">
@@ -104,14 +99,28 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
  *Example:*
  ```
  <CedChart
-     device="E8:FC:AF:B9:BE:A2"
-     dataType="Temperature"
+     data= {[...]}
+     timeUnit= {"time"}
+     valUnit= {"°C"}
      color="pink"
      secondColor="orange"
  />
  ```
  <img style="float: right;" src="/visuals/secondColor.png">
  
+ ### Y Label
+ **yLabel** is an additional property to label the y-axis.
+ 
+ *Example:*
+  ```
+  <CedChart
+      data= {[...]}
+      timeUnit= {"time"}
+      valUnit= {"°C"}
+      yLabel= {"°C"}
+  />
+  ```
+  <img style="float: right;" src="/visuals/yLabel.png">
  
  ## Contributing
   Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or contact me on Slack.
