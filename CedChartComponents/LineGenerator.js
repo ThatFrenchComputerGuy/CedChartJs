@@ -104,7 +104,7 @@ class LineGenerator extends Component {
             fill="url(#gradient)"
           />
           <GraphAxis
-            xScale={this.props.scaleX}
+            dateArr={this.props.dateArr}
             horizontalScaler={this.props.horizonScale}
           />
         </Svg>

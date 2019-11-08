@@ -1,12 +1,12 @@
 import React from 'react';
-import {Dimensions, View} from 'react-native';
+import {Dimensions, Text, View} from 'react-native';
 import {Line} from 'react-native-svg';
 import PropTypes from 'prop-types';
 
 const {width} = Dimensions.get('window');
 let yPercentages = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
-export default function GraphAxis({xScale, horizontalScaler}) {
+export default function GraphAxis({dateArr, horizontalScaler}) {
   return (
     <View>
       {yPercentages.map(item => (
@@ -20,25 +20,37 @@ export default function GraphAxis({xScale, horizontalScaler}) {
           strokeWidth="02"
         />
       ))}
-      {xScale.map((item, idx) =>
-        idx % horizontalScaler === 0 ? (
-          <Line
-            key={idx}
-            x1={item + '%'}
-            y1="100%"
-            x2={item + '%'}
-            y2="0%"
-            stroke="#c3d1e6"
-            strokeWidth="02"
-          />
-        ) : (
-          <Line key={idx} /> //Do not display any line
-        ),
-      )}
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}>
+        {dateArr.map((item, idx) =>
+          idx % horizontalScaler === 0 ? (
+            <View
+              key={idx}
+              style={{
+                borderLeftColor: '#c3d1e6',
+                borderLeftWidth: 1,
+                width: 1,
+                paddingBottom: 200,
+              }}
+            />
+          ) : (
+            <View
+              key={idx}
+              style={{
+                width: 0,
+              }}
+            />
+          ),
+        )}
+      </View>
     </View>
   );
 }
 GraphAxis.propTypes = {
-  xScale: PropTypes.array.isRequired,
+  dateArr: PropTypes.array.isRequired,
   horizontalScaler: PropTypes.number.isRequired,
 };
