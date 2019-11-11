@@ -36,12 +36,17 @@ class CedChart extends Component {
     });
     /*-----yScale()-----*/
     //Every 10 strokes, will divide the amount of strokes by 2.
-    if (data.length < 20 && data.length > 12) {
+    if (this.props.period === '1w') {
+      console.log(data.length);
+      yScaleVal =
+        (data.length - (data.length % 10)) / 10 + 1 + data.length / 28;
+    } else if (data.length < 20 && data.length > 12) {
       yScaleVal = 2;
     } else if (data.length < 10) {
       yScaleVal = 1;
     } else {
       yScaleVal = (data.length - (data.length % 10)) / 10 + 1;
+      console.log(yScaleVal);
     }
     this.setState({
       yScale: yScaleVal,
@@ -64,9 +69,7 @@ class CedChart extends Component {
   // To display the time in the label we need toTimeString() which will be referred to as 'formatted'
   getDatesArray = (classicTime, formattedTime, element) => {
     classicTime.unshift(element[this.props.timeUnit]);
-    formattedTime.unshift(
-      new Date(element[this.props.timeUnit] * 1000).toTimeString().substr(0, 5),
-    );
+    formattedTime.unshift(new Date(element[this.props.timeUnit] * 1000));
   };
 
   xScale = (data, xPercentages, element) => {
@@ -104,6 +107,7 @@ class CedChart extends Component {
               <XLabels
                 dateArr={this.state.formattedTime}
                 scaleY={this.state.yScale}
+                period={this.props.period}
               />
             </View>
           </View>
