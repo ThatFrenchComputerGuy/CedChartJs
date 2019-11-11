@@ -11,30 +11,34 @@ class XLabels extends Component {
         break;
       case '1w':
         date = item.toDateString().substr(0, 3);
+        break;
+      default:
+        date = item.getMonth() + '/' + item.getDate();
+        break;
     }
     return date;
   };
 
   render() {
     return (
-      <React.Fragment>
-        {this.props.dateArr.map((item, idx) =>
-          idx % this.props.scaleY === 0 ? (
-            <View key={idx}>
-              <Text
-                style={
-                  Number(Math.round(Dimensions.get('window').width) * 0.9) < 330
-                    ? styles.smallScreen
-                    : styles.bigScreen
-                }>
-                {this.dateFormat(item)}
-              </Text>
-            </View>
-          ) : (
-            <View key={idx} style={{width: 0}} />
-          ),
-        )}
-      </React.Fragment>
+        <React.Fragment>
+          {this.props.dateArr.map((item, idx) =>
+              idx % this.props.scaleY === 0 ? (
+                  <View key={idx}>
+                    <Text
+                        style={
+                          Number(Math.round(Dimensions.get('window').width) * 0.9) < 330
+                              ? styles.smallScreen
+                              : styles.bigScreen
+                        }>
+                      {this.dateFormat(item)}
+                    </Text>
+                  </View>
+              ) : (
+                  <View key={idx} style={{width: 0}} />
+              ),
+          )}
+        </React.Fragment>
     );
   }
 }

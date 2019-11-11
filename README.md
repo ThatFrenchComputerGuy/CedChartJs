@@ -45,8 +45,9 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
 ### Compulsory properties
 
 - **Option 1** - You pass pre-fetched data to the Chart:
-    You need 3 props: **data**, **timeUnit** and **valUnit**.
+    You need 4 props: **data**, **timeUnit**, **valUnit** and **period**.
     - **data** must be an array of objects containing at least 2 different object with at least ```time:``` and  ```value:```   
+    - **period** will determine the format of the date. Please indicate ```1d``` for 24-hour format, ```1w``` for day-of-the-week format and ```1m``` or ```3m``` for mm/dd format.
 
     *Example:* 
     ```
@@ -63,7 +64,8 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
           ]}
           
         timeUnit = {"time"}
-        valUnit = {"value"} 
+        valUnit = {"value"}
+        period = {"1w"} 
   />
     ```
   
