@@ -21,32 +21,32 @@ class CedChart extends Component {
   }
 
   componentDidMount() {
-    let data = this.state.data;
+    let data = this.props.data;
     let dataGraph = [],
-      classicTime = [],
-      formattedTime = [],
-      xPercentages = [],
-      values = [];
+        classicTime = [],
+        formattedTime = [],
+        xPercentages = [],
+        values = [];
     let yScaleVal;
     data.forEach(element => {
-      values.unshift(element[this.props.valUnit]);
-      this.graphData(dataGraph, element);
-      this.getDatesArray(classicTime, formattedTime, element);
-      this.xScale(data, xPercentages, element);
+      if (element.type === this.props.dataType) {
+        values.unshift(element[this.props.valUnit]);
+        this.graphData(dataGraph, element);
+        this.getDatesArray(classicTime, formattedTime, element);
+        this.xScale(data, xPercentages, element);
+      }
     });
     /*-----yScale()-----*/
     //Every 10 strokes, will divide the amount of strokes by 2.
     if (this.props.period === '1w') {
-      console.log(data.length);
       yScaleVal =
-        (data.length - (data.length % 10)) / 10 + 1 + data.length / 28;
+          (data.length - (data.length % 10)) / 10 + 1 + data.length / 28;
     } else if (data.length < 20 && data.length > 12) {
       yScaleVal = 2;
     } else if (data.length < 10) {
       yScaleVal = 1;
     } else {
       yScaleVal = (data.length - (data.length % 10)) / 10 + 1;
-      console.log(yScaleVal);
     }
     this.setState({
       yScale: yScaleVal,
@@ -76,7 +76,7 @@ class CedChart extends Component {
     let xMax = data[data.length - 1][this.props.timeUnit];
     let scale = xMax - data[0][this.props.timeUnit];
     xPercentages.unshift(
-      100 - ((xMax - element[this.props.timeUnit]) * 100) / scale,
+        100 - ((xMax - element[this.props.timeUnit]) * 100) / scale,
     );
   };
 
@@ -84,47 +84,47 @@ class CedChart extends Component {
     const {loading} = this.state;
     if (!loading) {
       return (
-        <React.Fragment>
-          <View>
-            <View style={styles.yOnSide}>
-              <View style={styles.yLabels}>
-                <YLabel
-                  unitGet={this.state.values}
-                  yLabel={this.props.yLabel}
+          <React.Fragment>
+            <View>
+              <View style={styles.yOnSide}>
+                <View style={styles.yLabels}>
+                  <YLabel
+                      unitGet={this.state.values}
+                      yLabel={this.props.yLabel}
+                  />
+                </View>
+                <LineGenerator
+                    dateArr={this.state.classicTime}
+                    valArr={this.state.values}
+                    graph={this.state.graphData}
+                    horizonScale={this.state.yScale}
+                    scaleX={this.state.xScale}
+                    color={this.props.color}
+                    secondColor={this.props.secondColor}
                 />
               </View>
-              <LineGenerator
-                dateArr={this.state.classicTime}
-                valArr={this.state.values}
-                graph={this.state.graphData}
-                horizonScale={this.state.yScale}
-                scaleX={this.state.xScale}
-                color={this.props.color}
-                secondColor={this.props.secondColor}
-              />
+              <View style={styles.xLabels}>
+                <XLabels
+                    dateArr={this.state.formattedTime}
+                    scaleY={this.state.yScale}
+                    period={this.props.period}
+                />
+              </View>
             </View>
-            <View style={styles.xLabels}>
-              <XLabels
-                dateArr={this.state.formattedTime}
-                scaleY={this.state.yScale}
-                period={this.props.period}
-              />
-            </View>
-          </View>
-        </React.Fragment>
+          </React.Fragment>
       );
     } else {
       return (
-        <View style={{height: 200}}>
-          <Text style={{color: '#367be2', paddingTop: 90}}>
-            Chart loading...
-          </Text>
-          <ActivityIndicator
-            size="large"
-            color="#367be2"
-            style={{paddingTop: 10}}
-          />
-        </View>
+          <View style={{height: 200}}>
+            <Text style={{color: '#367be2', paddingTop: 90}}>
+              Chart loading...
+            </Text>
+            <ActivityIndicator
+                size="large"
+                color="#367be2"
+                style={{paddingTop: 10}}
+            />
+          </View>
       );
     }
   }

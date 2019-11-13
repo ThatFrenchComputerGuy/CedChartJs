@@ -45,7 +45,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
 ### Compulsory properties
 
 - **Option 1** - You pass pre-fetched data to the Chart:
-    You need 4 props: **data**, **timeUnit**, **valUnit** and **period**.
+    You need 5 props: **data**, **timeUnit**, **valUnit**, **dataType** and **period**.
     - **data** must be an array of objects containing at least 2 different object with at least ```time:``` and  ```value:```   
     - **period** will determine the format of the date. Please indicate ```1d``` for 24-hour format, ```1w``` for day-of-the-week format and ```1m``` or ```3m``` for mm/dd format.
 
@@ -62,7 +62,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
               value: '100',
             },
           ]}
-          
+        dataType = {"temperature"}  
         timeUnit = {"time"}
         valUnit = {"value"}
         period = {"1w"} 
@@ -84,6 +84,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
 ```
 <CedChart
     data= {[...]}
+    dataType = {"temperature"}
     timeUnit= {"time"}
     valUnit= {"value"}
     color= {"red"}
@@ -102,6 +103,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
  ```
  <CedChart
      data= {[...]}
+     dataType = {"temperature"}
      timeUnit= {"time"}
      valUnit= {"value"}
      color="pink"
@@ -117,6 +119,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
   ```
   <CedChart
       data= {[...]}
+      dataType = {"temperature"}
       timeUnit= {"time"}
       valUnit= {"value"}
       yLabel= {"°C"}
