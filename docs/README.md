@@ -1,7 +1,7 @@
 # CedChart.js
 CedChart.js is a react-native module which renders a fully scalable Line Chart.
 
-<img src="/visuals/mainVisual.png">
+<img src="../visuals/mainVisual.png">
 
 
 ## Table of Contents
