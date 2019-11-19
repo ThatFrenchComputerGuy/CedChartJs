@@ -26,6 +26,7 @@ CedChart.js is a react-native module which renders a fully scalable Line Chart.
 
 ## Installation
 You can instlal the module through npm: https://www.npmjs.com/package/cedchart-rn
+
 run ```npm install cedchart-rn```
 
 ## Usage
