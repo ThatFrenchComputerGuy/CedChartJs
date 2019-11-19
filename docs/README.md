@@ -25,19 +25,8 @@ CedChart.js is a react-native module which renders a fully scalable Line Chart.
 - The y-axis will always display 11 adaptive values corresponding to 0, 10, 20, 30, ... , 100% of the data's max value.
 
 ## Installation
-There is currently no installation option. You have to include the source code in your project.
-
-### Dependencies
-You **must** install: 
--  axios
-- d3-scale
-- d3-shape
-- react-native-svg
-- _(react_ & _react-native)_
-
-Run ```npm install dependency_name```
-
-Alternatively, you may run ```yarn add dependency_name``` then ```yarn install``` (Not tested)
+You can instlal the module through npm: https://www.npmjs.com/package/cedchart-rn
+run ```npm install cedchart-rn```
 
 ## Usage
 You implement the chart by calling ```<CedChart />``` in your ```render()```
