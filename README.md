@@ -128,7 +128,7 @@ You implement the chart by calling ```<CedChart />``` in your ```render()```
   <img style="float: right;" src="/visuals/yLabel.png">
  
  ## Contributing
-  Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or contact me on Slack.
+  Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
     
  ## FAQ
    #### Can I change the aspect ratio of the chart ?
