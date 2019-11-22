@@ -1,0 +1,30 @@
+{
+  "name": "cedchart",
+  "version": "1.0.1",
+  "description": "CedChart.js is a react-native module which render a fully scalable Line Chart",
+  "main": "CedChart.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "d3-scale": "^3.1.0",
+    "d3-shape": "^1.3.5",
+    "prop-types": "^15.7.2",
+    "react": "16.9.0",
+    "react-native": "0.61.4",
+    "react-native-svg": "^9.11.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThatFrenchComputerGuy/CedChartJs.git"
+  },
+  "author": "Cedric Laurent Dylan LE LAY <cldlelay@gmail.com> (https://www.linkedin.com/in/cedriclelay/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThatFrenchComputerGuy/CedChartJs/issues"
+  },
+  "homepage": "https://github.com/ThatFrenchComputerGuy/CedChartJs#readme"
+}
