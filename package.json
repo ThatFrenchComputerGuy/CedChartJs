@@ -1,11 +1,13 @@
 {
   "name": "cedchart",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "CedChart.js is a react-native module which render a fully scalable Line Chart",
   "main": "CedChart.js",
-  "keywords": ["chart",
-  				"react-native",
-  				"react-native-chart"],
+  "keywords": [
+    "chart",
+    "react-native",
+    "react-native-chart"
+  ],
   "directories": {
     "doc": "docs"
   },
