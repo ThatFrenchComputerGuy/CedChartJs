@@ -22,7 +22,7 @@ CedChart.js is a react-native module which renders a fully scalable Line Chart.
 - The y-axis will always display 11 adaptive values corresponding to 0, 10, 20, 30, ... , 100% of the data's max value.
 
 ## Installation
-You can instlal the module through npm: https://www.npmjs.com/package/cedchart
+You can install the module through npm: https://www.npmjs.com/package/cedchart
 
 run ```npm install cedchart```
 
@@ -32,9 +32,8 @@ run ```npm install cedchart```
 ### Compulsory properties
 
 - **Option 1** - You pass pre-fetched data to the Chart:
-    You need 5 props: **data**, **timeUnit**, **valUnit**, **dataType** and **period**.
+    You need 4 props: **data**, **timeUnit**, **valUnit** and **period**.
     - **data** must be an array of objects containing at least 2 different object with at least a time unit and a value unit. **IMPORTANT: Your time unit must be of a Unix Time Stamp format with 10 digits (see Example below)**  
-    - **dataType** is a temporary solution to a known bug ! I am actively working on it. In the meantime you may have a dataType props that needs to match the one in your data.
     - **timeUnit** and **valUnit** are just titles that need to match the names of your time and value names inside your data.
     - **period** will determine the format of the date. Please indicate ```1d``` for 24-hour format, ```1w``` for day-of-the-week format and ```1m``` or ```3m``` for mm/dd format. **Warning:** If you want 24-hour format, you also need to have a data array that corresponds to 24 hours worth of data. Same goes for other periods.
 
@@ -45,12 +44,10 @@ run ```npm install cedchart```
             {
               time: '1570522315',
               value: '0',
-              dataType: 'temperature',
             },
             {
               time: '1570522215',
               value: '100',
-              dataType: 'temperature'
             },
           ]}
         dataType = {"temperature"}  
@@ -75,7 +72,6 @@ run ```npm install cedchart```
 ```
 <CedChart
     data= {[...]}
-    dataType = {"temperature"}
     timeUnit= {"time"}
     valUnit= {"value"}
     color= {"red"}
@@ -94,7 +90,6 @@ run ```npm install cedchart```
  ```
  <CedChart
      data= {[...]}
-     dataType = {"temperature"}
      timeUnit= {"time"}
      valUnit= {"value"}
      color="pink"
@@ -110,7 +105,6 @@ run ```npm install cedchart```
   ```
   <CedChart
       data= {[...]}
-      dataType = {"temperature"}
       timeUnit= {"time"}
       valUnit= {"value"}
       yLabel= {"°C"}

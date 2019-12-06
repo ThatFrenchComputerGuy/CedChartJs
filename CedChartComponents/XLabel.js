@@ -13,7 +13,7 @@ class XLabels extends Component {
         date = item.toDateString().substr(0, 3);
         break;
       default:
-        date = item.getMonth() + '/' + item.getDate();
+        date = item.getMonth()+1 + '/' + item.getDate();
         break;
     }
     return date;

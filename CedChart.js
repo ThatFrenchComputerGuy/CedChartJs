@@ -10,7 +10,6 @@ class CedChart extends Component {
     this.state = {
       loading: true,
       data: this.props.data ? this.props.data : [],
-      dataType: this.props.dataType,
       yScale: 0,
       graphData: [],
       classicTime: [],
@@ -29,12 +28,10 @@ class CedChart extends Component {
         values = [];
     let yScaleVal;
     data.forEach(element => {
-      if (element.type === this.props.dataType) {
         values.unshift(element[this.props.valUnit]);
         this.graphData(dataGraph, element);
         this.getDatesArray(classicTime, formattedTime, element);
         this.xScale(data, xPercentages, element);
-      }
     });
     /*-----yScale()-----*/
     //Every 10 strokes, will divide the amount of strokes by 2.
