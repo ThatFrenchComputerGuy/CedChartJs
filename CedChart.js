@@ -36,8 +36,9 @@ class CedChart extends Component {
     /*-----yScale()-----*/
     //Every 10 strokes, will divide the amount of strokes by 2.
     if (this.props.period === '1w') {
-      yScaleVal =
-          (data.length - (data.length % 10)) / 10 + 1 + data.length / 28;
+      yScaleVal = Math.floor(
+          (data.length - (data.length % 10)) / 10 + 1 + data.length / 28,
+      );
     } else if (data.length < 20 && data.length > 12) {
       yScaleVal = 2;
     } else if (data.length < 10) {
